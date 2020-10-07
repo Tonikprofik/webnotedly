@@ -4,12 +4,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+//imp Routes
+import Pages from '/pages';
 
 const App = () => {
     return (
         <div>
-            <h1>Hello Notedly!</h1>
-            <p>Welcome to Notedly♥</p>    
+            <Pages/>    
         </div>
     );
 };
