@@ -1,22 +1,16 @@
 import React from 'react';
 
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
+import Header from '../components/Header';
+import Navigation from '../components/Navigation';
 
 const Home = () => {
     return (
         <div>
-            <h1>Notedly</h1>
+            <Header/>
+            <Navigation/>
             <p>Home page is here</p>    
 
-            {/*todo:add list of links */}
-            <ul>
-                <li>
-                    <Link to="/mynotes">My Nootes</Link>
-                </li>
-                <li>
-                    <Link to= "/favorites">Favoritess</Link>
-                </li>
-            </ul>    
         </div>
     );
 };
