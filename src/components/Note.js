@@ -1,6 +1,6 @@
 import { checkFetcher } from '@apollo/client';
 import React from 'react'
-import ReactMarkDown from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
 import {format} from 'date-fns';
 import styled from 'styled-components';
 
@@ -26,15 +26,27 @@ const UserActions = styled.div`
 
 const Note = ({ note }) => {
     return (
-        <article>
-            <img src={note.author.avatar}
-                 alt="{note.author.username} avatar"
-                 heigh="50px"
-            />{' '}
-            {format(note.createdAt, 'MMM Do YYYY')} Favorites:{' '}
-            {note.author.username} {note.createdAt} {note.favoriteCount} {' '}
-            <ReactMarkDown source={note.content} />
-        </article>
+        <StyledNote>
+            <MetaData>
+                <MetaInfo>
+                    <img src={note.author.avatar}
+                    alt="{note.author.username} avatar"
+                    heigh="50px"
+                    />{' '}
+                </MetaInfo>
+
+                <MetaInfo>
+                    <em>by</em> {note.author.username} <br/>
+                    {format(note.createdAt,' Do MMM YYYY')}
+                
+                </MetaInfo>
+                <UserActions>
+                    <em>Favorites:</em> {note.favoriteCount}
+                </UserActions>
+            </MetaData>
+            
+            <ReactMarkdown source={note.content} />
+        </StyledNote>
     );
 };
 
