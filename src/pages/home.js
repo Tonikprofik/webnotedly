@@ -36,9 +36,40 @@ const Home = () => {
 
     if(error) return <p>Sorry, error man</p>;
 
-    // if successful, display data
+    // if successful, display data in UI
     return (
-        <NoteFeed notes={data.noteFeed.notes} />
+        // Fragment element to provide a parent element
+        <React.Fragment>
+            <NoteFeed notes={data.noteFeed.notes} />
+            {/* only display the Load More button if hasNextPage is true */}
+            {data.noteFeed.hasNextPage && (
+                // onClick handler performs a query, passing cursor as variable
+                <Button
+                    onClick= {() =>
+                        fetchMore({
+                            variables: {
+                                cursor: data.noteFeed.cursor
+                            },
+                            updateQuery: (previousResult, {fetchMoreResult}) => {
+                                return {
+                                    noteFeed: {
+                                        cursor: fetchMoreResult.noteFeed.cursor,
+                                        hasNext: fetchMoreResult.noteFeed.hasNextPage,
+                                        // combine new results and the old
+                                        notes: [
+                                            ...previousResult.noteFeed.notes,
+                                            ...fetchMoreResult.noteFeed.notes
+                                        ],
+                                        __typename: 'noteFeed'
+                                    }
+                                };
+                            }
+                        })}
+                >
+                Load more
+                </Button>
+            )}
+        </React.Fragment>
     );
 };
 
