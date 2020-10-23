@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {useMutation, useApolloClient, gql} from '@apollo/client'
+import UserForm from '../components/UserForm'
 
 import Button from '../components/Button';
 
@@ -32,15 +33,6 @@ const SIGNUP_USER = gql`
             }`;
 
 const SignUp = (props) => {
-    //default state of the form
-    const [ values, setValues] = useState();
-    //update state when user types in the form
-    const onChange = event => {
-        setValues({
-            ...values,
-            [event.target.name]: event.target.value
-        });
-    };
     //update document title
     useEffect( () => {
         document.title= 'Sign Up - Notedly';
@@ -60,48 +52,14 @@ const SignUp = (props) => {
         }});
 
     return (
-        <Wrapper>
-            <h2>Sign Up</h2>
+        <React.Fragment>
             {/* pass the form data to the mutation when user submits */}
-            <Form 
-                onSubmit={event => {
-                    event.preventDefault();
-                    signUp({
-                        variables: {
-                            ...values
-                        }
-                    });
-                }} >
-                <label htmlFor="username">Username:</label>
-                <input
-                    required
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="username"
-                    onChange={onChange}
-                />
-                <label htmlFor="email">Email:</label>
-                <input
-                    required
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="email"
-                    onChange={onChange}
-                />
-                <label htmlFor="password">Password:</label>
-                <input
-                    required
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="password"
-                    onChange={onChange}
-                />
-                <Button type="submit">Submit</Button>
-            </Form>
-        </Wrapper>
+            <UserForm action={signUp} formType="signup"/>
+            {/* if data loading, show loading message */}
+            {loading && <p>Loading...</p>}
+            {/* if theres error, display error message */}
+            {error && <p>Error creating an account!</p>}            
+        </React.Fragment>
     );
 };
 

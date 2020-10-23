@@ -25,8 +25,10 @@ const Form = styled.form`
 `;
 
 const UserForm = props => {
+    //default state of form
     const [values, setValues] = useState();
 
+    //update the state when user types in form
     const onChange = event => {
         setValues({
             ...values,[event.target.name] : event.target.value
@@ -35,7 +37,9 @@ const UserForm = props => {
 
     return (
         <Wrapper>
+            {/* Display the sign up/in */}
             {props.formType === 'signup' ? <h2>Sign Up</h2> : <h2>Sign In</h2>}
+            {/*  perform mutation when a user submits the form */}
             <Form
                 onSubmit= {e => {
                     e.preventDefault();
