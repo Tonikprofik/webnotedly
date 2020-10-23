@@ -45,8 +45,7 @@ const UserForm = props => {
                         }
                     });
                 }}>
-                    {props.formType === 'signup' 
-                    && (
+                    {props.formType === 'signup' && (
                     <React.Fragment>
                         <label htmlFor='username'>Username:</label>
                         <input
@@ -57,8 +56,28 @@ const UserForm = props => {
                             placeholder="username"
                             />
                     </React.Fragment>)}
+                    <label htmlFor="email">Email:</label>
+                    <input
+                        required
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        onChange={onChange}
+                    />
+                    <label htmlFor="password"> Password:</label>
+                    <input 
+                        required
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={onChange}
+                    />
+                    <Button type="submit"></Button>
             </Form>
         </Wrapper>
     )
 
 }
+
+export default UserForm;
