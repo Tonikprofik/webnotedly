@@ -73,7 +73,7 @@ const UserForm = props => {
                         placeholder="Password"
                         onChange={onChange}
                     />
-                    <Button type="submit"></Button>
+                    <Button type="submit">Submit</Button>
             </Form>
         </Wrapper>
     )
