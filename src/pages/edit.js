@@ -9,11 +9,19 @@ const EditNote = props => {
     // store id found in the url as a variable
     const id = props.match.params.id;
 
-    // define our note query
+    // note query
     const { loading, error, data } = useQuery(GET_NOTE, { variables: { id } });
 
-    //fetch current users data
+    // fetch current users data
     const { data: userdata } = useQuery(GET_ME);
+
+    // mutation
+    const [editNote] = useMutation(EDIT_NOTE, { 
+        variables: { id },
+        onCompleted: () => {
+            props.history.push(`/note/${id}`);
+        }
+    });
 
     if (loading) return 'Loading...';
     if (error) return <p>Sorry. Note not found</p>
@@ -23,8 +31,8 @@ const EditNote = props => {
         return <p> Sorry! No access to edit this note</p>;
     }
 
-    //if succeeds, pass data to NoteForm component
-    return <NoteForm content = {data.note.content} />;
+    //if succeeds, pass data and mutation to NoteForm component
+    return <NoteForm content = {data.note.content} action={editNote} />;
 
 };
 
