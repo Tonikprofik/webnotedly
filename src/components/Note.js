@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 import { useQuery } from '@apollo/client'
 import NoteUser from './NoteUser'
-import { IS_LOGGED_IN } from '../gql/query
+import { IS_LOGGED_IN } from '../gql/query'
 
 import {format} from 'date-fns';
 import styled from 'styled-components';
@@ -59,7 +59,7 @@ const Note = ({ note }) => {
                     </UserActions>
                 )}
             </MetaData>
-            
+
             <ReactMarkdown source={note.content} />
         </StyledNote>
     );
