@@ -2,7 +2,7 @@ import React from 'react'
 import { useQuery, useMutation, gql} from '@apollo/client'
 
 import NoteForm from '../components/NoteForm';
-import { GET_NOTE } from '../gql/query'
+import { GET_NOTE, GET_ME } from '../gql/query'
 import { EDIT_NOTE } from '../gql/mutation'
 
 const EditNote = props => {

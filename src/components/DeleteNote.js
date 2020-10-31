@@ -9,7 +9,7 @@ import { GET_MY_NOTES, GET_NOTES } from '../gql/query'
 
 
 const DeleteNote = (props) => {
-    cont [deleteNote] = useMutation(DELETE_NOTE, {
+    const [deleteNote] = useMutation(DELETE_NOTE, {
         variables: {
             id: props.noteId
         },
@@ -21,7 +21,8 @@ const DeleteNote = (props) => {
         }
     });
 
-    return <ButtonAsLink onClick={deleteNote}>Delete Note</ButtonAsLink>;
+    return <ButtonAsLink onClick={deleteNote}>
+        Delete Note</ButtonAsLink>;
 };
 
 export default withRouter(DeleteNote);
