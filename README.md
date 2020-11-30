@@ -1,5 +1,8 @@
 <img src="cover.png" width="200" align="right" />
 
+# Web client for NotedlyApi
+https://github.com/Tonikprofik/NotedlyCloneApi
+
 # JavaScript Everywhere Web Application
 
 This repository contains code examples for the web application chapters of [_JavaScript Everywhere_](https://www.jseverywhere.io/) by Adam D. Scott, published by O'Reilly Media
