@@ -1,6 +1,7 @@
 <img src="cover.png" width="200" align="right" />
 
 # Web client for NotedlyApi
+React, GraphQL, Authentication JWT, deployed on mongo atlas, heroku
 https://github.com/Tonikprofik/NotedlyCloneApi
 
 # JavaScript Everywhere Web Application
