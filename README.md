@@ -10,11 +10,7 @@ https://confident-mcclintock-bcc4d0.netlify.app/
 
 # JavaScript Everywhere Web Application
 
-This repository contains code examples for the web application chapters of [_JavaScript Everywhere_](https://www.jseverywhere.io/) by Adam D. Scott, published by O'Reilly Media
-
-## Getting Help
-
-The best place to get help is our Spectrum channel, [spectrum.chat/jseverywhere](https://spectrum.chat/jseverywhere).
+This repository contains code of [_JavaScript Everywhere_](https://www.jseverywhere.io/) by Adam D. Scott, published by O'Reilly Media
 
 ## Directory Structure
 
@@ -35,12 +31,6 @@ If you are interested running the completed application, you can run:
 ```
 npm run final
 ```
-
-## Related Repositories
-
-- [API 🗄️ ](https://github.com/javascripteverywhere/api)
-- [Mobile 🤳](https://github.com/javascripteverywhere/mobile)
-- [Desktop 🖥️](https://github.com/javascripteverywhere/desktop)
 
 ## Code of Conduct
 
